@@ -175,7 +175,7 @@ Now that you're thinking in terms of self-contained interfaces, take a look at t
 of the code.  I've added comments everywhere to preach at you, don't worry.  [Handlers](./handlers/user.go)
 is a good next step.
 
-When you get around to [looking at the databse code](./db/db.go), notice that there's stuff
+When you get around to [looking at the database code](./db/db.go), notice that there's stuff
 in there that isn't used by any of the other packages yet.  You didn't need to know that
 `db` could do all these things.  You only had to worry about what those packages needed `db`
 to do.  That mindset lets you create much more self-contained and vastly more understandable code.
