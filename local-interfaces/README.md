@@ -85,7 +85,7 @@ So let's get into some business logic!
 
 ## First stop: Leaderboard
 
-Let's go with `leaderboard` because I feel like it.  Fine, you can look at code.
+Let's go with `leaderboard` because I feel like it.  Fine, you can look at code now.
 [Go here.](./leaderboard/leaderboard.go)
 
 So you jump into `leaderboard.New` and find this signature:
@@ -135,8 +135,13 @@ dev cry because they never meant for this.  Now who's the jerk?
 The point is, these interfaces are documentation in their own right.  They tell you
 exactly what, and *only* what, `leaderboard` is going to need to do to the outside world.
 This is wonderful for keeping your code clean and vastly reducing the amount of
-tribal knowledge required to maintain a project.  You should think of your code
-from the perspective of someone just coming in.
+tribal knowledge required to maintain a project.
+
+It's easy to take for granted what some code is doing while you're writing it and
+actively maintaining it.  But you should often take a step back and consider what
+your code looks like to someone that's never touched it before.  Whenever you have
+tools at your dispoal to reduce the mental load of someone coming in, it's probably
+a good idea to use them.
 
 ### Implications for testing
 
@@ -158,4 +163,25 @@ complicated enough to need its own tests because tweaking something suddenly bro
 random actual test that relied on the mock, and... yeah.  I've been down that road.
 Learn from my mistakes.
 
-*Simpler mocks make more confident tests.  More confident tests means less friction in development.*
+Small, lean, self-contained mocks like this may end up getting copied around to some
+extent, and this isn't always as DRY as you could be.  But consider the tradeoffs.
+
+**Simpler mocks make more confident tests.  More confident tests means less friction in
+development.**
+
+## The rest of the code
+
+Now that you're thinking in terms of self-contained interfaces, take a look at the rest
+of the code.  I've added comments everywhere to preach at you, don't worry.  [Handlers](./handlers/user.go)
+is a good next step.
+
+When you get around to [looking at the databse code](./db/db.go), notice that there's stuff
+in there that isn't used by any of the other packages yet.  You didn't need to know that
+`db` could do all these things.  You only had to worry about what those packages needed `db`
+to do.  That mindset lets you create much more self-contained and vastly more understandable code.
+
+## Summary
+
+Go interfaces don't work like C# or Java interfaces.  They allow you to very clearly
+declare required dependencies and this comes with some great benefits that you can't
+easily get from other languages.  Don't fight this by being a DRY zealot.  Embrace it!
