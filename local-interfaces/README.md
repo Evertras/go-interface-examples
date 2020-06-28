@@ -37,8 +37,8 @@ The `db` package handles all the actual database commands.  It's totally mocked
 out because the implementation doesn't matter.  You can imagine writing some actual
 database access code here.
 
-The `notifications` package handles sending notifications to users.  Maybe an email
-or a push notification; again, then implementation doesn't matter here.  Pretend
+The `notifications` package handles sending notifications to users.  Maybe it's an email
+or a push notification; again, the implementation doesn't matter here.  Pretend
 the inner code does something cool.
 
 ### The "do business logic" packages
@@ -53,7 +53,7 @@ notifications.  It's not terribly exciting but it's enough to need `db` and `not
 ### The main package
 
 There's a barebones main.go in `cmd` to demonstrate how to pass in `db` and `notifications`
-instances to the `handlers` and `leaderboard` bits.  We'll look at that last.
+instances to the `handlers` and `leaderboard` bits.
 
 ## Ok, time to look at code
 
