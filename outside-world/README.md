@@ -488,7 +488,7 @@ In fact, nothing's changed on the inside besides the name.
 champion, err := currentChampionGetter.GetCurrentChampion()
 ```
 
-Ok, you can remember the data store again.  Note that it hasn't changed.
+Ok, you can remember the data store again.  It hasn't changed.
 
 ```golang
 func (s *GSLDataStore) GetCurrentChampion() (string, error) {
@@ -496,7 +496,7 @@ func (s *GSLDataStore) GetCurrentChampion() (string, error) {
 
 Notice this method matches our interface.  How convenient!  That was definitely not an accident.
 While the data store doesn't need to know about the interface, it does need to have one method
-for every method listed in the interface and the must match exactly.  It can have other methods
+for every method listed in the interface and they must match exactly.  It can have other methods
 that aren't in the interface, but it must have at *least* all the methods in the interface
 in order to be considered a match.
 
