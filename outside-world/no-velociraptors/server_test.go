@@ -14,6 +14,7 @@ type mockCurrentChampionGetter struct {
 }
 
 // We match the interface that our handler requires, so we can pass it in
+// to the handler
 func (g *mockCurrentChampionGetter) GetCurrentChampion() (string, error) {
 	if g.pendingError != nil {
 		return "", g.pendingError
@@ -22,7 +23,7 @@ func (g *mockCurrentChampionGetter) GetCurrentChampion() (string, error) {
 	return g.current, nil
 }
 
-func TestGSLCurrentChampionIsTY(t *testing.T) {
+func TestGSLCurrentChampionReturned(t *testing.T) {
 	expectedWorldChampion := "TY"
 
 	// No more files!  We can specify the exact scenario we want.
@@ -49,8 +50,8 @@ func TestGSLCurrentChampionIsTY(t *testing.T) {
 	}
 }
 
-// On the bright side, we can add this test now!
-func TestGSLCurrentChampionReturns500WhenFileDoesntExist(t *testing.T) {
+// This test is even more sensible now
+func TestGSLCurrentChampionReturns500WhenGetterFails(t *testing.T) {
 	// Now we can trigger error handling in a very explicit, simple way,
 	// without relying on weird underlying implementation... much less
 	// fragile on all fronts!
