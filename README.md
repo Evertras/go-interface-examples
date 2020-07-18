@@ -35,6 +35,8 @@ you may already be doing with interfaces/IoC/DI.
 
 *Why does Go tell me to declare interfaces at the consumer level?*
 
+*What's up with [this tweet](https://twitter.com/davecheney/status/942593128355192832?s=20)?*
+
 [See the article here.](./local-interfaces)
 
 There's a reason libraries don't usually give you an interface to work with,
