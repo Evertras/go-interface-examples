@@ -419,7 +419,7 @@ I want you to understand *why* they exist before we look at how to add one.
 
 Right now I want you to think about the [current state of our little service](./less-velociraptors).
 
-We have a data store that gets the currentl GSL champion's name.  It uses the file system
+We have a data store that gets the current GSL champion's name.  It uses the file system
 and can be configured to read a certain file to find out who the champion is.
 
 We have a server that has an HTTP handler that writes the current GSL champion's name back
