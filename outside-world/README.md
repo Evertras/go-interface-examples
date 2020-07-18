@@ -310,11 +310,11 @@ Instead of a handler just existing on its own, we've created a function that
 returns a function.  Notice the difference between the old version and the new:
 
 ```golang
-	// Old
-	mux.HandleFunc("/champion", gslCurrentChampionHandler)
+// Old
+mux.HandleFunc("/champion", gslCurrentChampionHandler)
 
-	// New                                               vvvvvvvvvvv
-	mux.HandleFunc("/champion", gslCurrentChampionHandler(dataStore))
+// New                                               vvvvvvvvvvv
+mux.HandleFunc("/champion", gslCurrentChampionHandler(dataStore))
 ```
 
 The created function returns a function with the proper signature, but that
@@ -372,11 +372,11 @@ I want you to pretend that you're a new dev again coming in on this project.  Lo
 two lines of code.
 
 ```golang
-	contents, err := ioutil.ReadFile("./champion.txt")
+contents, err := ioutil.ReadFile("./champion.txt")
 ```
 
 ```golang
-	champion, err := dataStore.GetCurrentChampion()
+champion, err := dataStore.GetCurrentChampion()
 ```
 
 Which of these feels cleaner?  Which of these would you rather work with?  Which of these
@@ -485,7 +485,7 @@ Remember: **The less a block of code has to know, the less WE have to know when 
 In fact, nothing's changed on the inside besides the name.
 
 ```golang
-	champion, err := currentChampionGetter.GetCurrentChampion()
+champion, err := currentChampionGetter.GetCurrentChampion()
 ```
 
 Ok, you can remember the data store again.  Note that it hasn't changed.
