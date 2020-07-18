@@ -477,6 +477,10 @@ said "I need a GSLDataStore, because... reasons."
 
 Now it says "I need something that can get the current champion." That's *huge* in terms of what
 it tells the reader without having to read a single line of code inside the handler itself.
+And because it's just a simple list of methods, it also means we don't need to know anything else
+about what's being passed in here.
+
+Remember: **The less a block of code has to know, the less WE have to know when working on that code. The less we have to know when working on code, the easier it is to maintain.**
 
 In fact, nothing's changed on the inside besides the name.
 
