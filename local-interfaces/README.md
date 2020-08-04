@@ -124,6 +124,8 @@ When you see these interfaces, you now know the following.
 3. The two above things are 100% relevant to Leaderboard
 4. Leaderboard cannot do anything else like delete a user
 
+[!Professor Gopher knows what's up](./list.png "Professor Gopher knows what's up")
+
 Imagine if instead there was some `IDb` interface from a traitorous C# coder that
 contained 50 different function signatures, but all `leaderboard` ever needed was
 that one.  How would you know that? You'd have to go through all the code and track
