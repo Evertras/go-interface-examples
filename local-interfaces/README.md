@@ -184,6 +184,7 @@ to do.  That mindset lets you create much more self-contained and vastly more un
 
 ## Summary
 
-Go interfaces don't work like C# or Java interfaces.  They allow you to very clearly
-declare required dependencies and this comes with some great benefits that you can't
-easily get from other languages.  Don't fight this by being a DRY zealot.  Embrace it!
+Go interfaces come with a different mindset than C# or Java interfaces.  They allow you
+to very clearly declare required dependencies and this comes with some great benefits
+that you can't easily get from other languages.  Don't fight this by being a DRY zealot.
+Embrace it!
