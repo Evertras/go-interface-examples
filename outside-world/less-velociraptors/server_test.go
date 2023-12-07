@@ -1,14 +1,14 @@
 package main
 
 import (
-	"io/ioutil"
+	"os"
 	"net/http/httptest"
 	"testing"
 )
 
 func TestGSLCurrentChampionIsTY(t *testing.T) {
 	// We still have to do this.  I hate my life.
-	contents, err := ioutil.ReadFile("./champion.txt")
+	contents, err := os.ReadFile("./champion.txt")
 
 	if err != nil {
 		t.Fatal("Failed to read file:", err)

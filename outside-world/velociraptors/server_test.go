@@ -1,7 +1,7 @@
 package main
 
 import (
-	"io/ioutil"
+	"os"
 	"net/http/httptest"
 	"testing"
 )
@@ -10,7 +10,7 @@ func TestGSLCurrentChampionIsTY(t *testing.T) {
 	// I hate everything about this.  Writing this has caused my keyboard
 	// to rebel in anger.  Do not use this.  Do not even think about it
 	// for too long or adverse health effects may arise.
-	contents, err := ioutil.ReadFile("./champion.txt")
+	contents, err := os.ReadFile("./champion.txt")
 
 	if err != nil {
 		t.Fatal("Failed to read file:", err)
