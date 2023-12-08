@@ -102,7 +102,7 @@ And now we can have our handler read the file every time someone asks (*aside: n
 // server.go
 
 func gslCurrentChampionHandler(res http.ResponseWriter, req *http.Request) {
-	contents, err := ioutil.ReadFile("./champion.txt")
+	contents, err := os.ReadFile("./champion.txt")
 
 	if err != nil {
 		log.Println("Failed to read file:", err)
@@ -121,7 +121,7 @@ func TestGSLCurrentChampionIsTY(t *testing.T) {
 	// I hate everything about this.  Writing this has caused my keyboard
 	// to rebel in anger.  Do not use this.  Do not even think about it
 	// for too long or adverse health effects may arise.
-	contents, err := ioutil.ReadFile("./champion.txt")
+	contents, err := os.ReadFile("./champion.txt")
 
 	if err != nil {
 		t.Fatal("Failed to read file:", err)
@@ -152,7 +152,7 @@ Oof.  This is bad.
 ...but why?
 
 Read this test as if you had no idea what `gslCurrentChampionHandler` did.
-If your head combusts the moment you see "ioutil.ReadFile", then you're
+If your head combusts the moment you see "os.ReadFile", then you're
 doing well.
 
 Seriously, take a moment.  Look at the test.  Imagine you're a fresh new developer
@@ -191,7 +191,7 @@ Let's take another look at the code as-is.
 
 ```go
 func gslCurrentChampionHandler(res http.ResponseWriter, req *http.Request) {
-	contents, err := ioutil.ReadFile("./champion.txt")
+	contents, err := os.ReadFile("./champion.txt")
 
 	if err != nil {
 		log.Println("Failed to read file:", err)
@@ -207,8 +207,8 @@ While this is very few lines of actual code, the current handler has to deal
 with the following:
 
 - What even is HTTP? (res/req parameters)
-- How do I get the data I need? (read a file with ioutil.ReadFile)
-- What even is a file? (ioutil.ReadFile)
+- How do I get the data I need? (read a file with os.ReadFile)
+- What even is a file? (os.ReadFile)
 - What file do I need to read? (champion.txt)
 - What is the format of that file? (literally just the name in this case, but we still need to know that!)
 - What do I do if I can't get the data? (return 500)
@@ -232,8 +232,8 @@ HTTP:
 
 Data:
 
-- What even is a file? (ioutil.ReadFile)
-- How do I get the data I need? (read a file with ioutil.ReadFile)
+- What even is a file? (os.ReadFile)
+- How do I get the data I need? (read a file with os.ReadFile)
 - What file do I need to read? (champion.txt)
 - What is the format of that file? (literally just the name in this case, but we still need to know that!)
 
@@ -259,7 +259,7 @@ func NewGSLDataStore(championFile string) *GSLDataStore {
 
 // GetCurrentChampion returns the name of the current GSL champion
 func (s *GSLDataStore) GetCurrentChampion() (string, error) {
-	contents, err := ioutil.ReadFile(s.championFile)
+	contents, err := os.ReadFile(s.championFile)
 
 	if err != nil {
 		return "", fmt.Errorf("failed to read file: %w", err)
@@ -372,7 +372,7 @@ I want you to pretend that you're a new dev again coming in on this project.  Lo
 two lines of code.
 
 ```golang
-contents, err := ioutil.ReadFile("./champion.txt")
+contents, err := os.ReadFile("./champion.txt")
 ```
 
 ```golang

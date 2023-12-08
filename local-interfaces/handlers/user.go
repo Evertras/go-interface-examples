@@ -3,7 +3,7 @@ package handlers
 import (
 	"context"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"net/http"
 )
 
@@ -40,10 +40,10 @@ func GetUserScoreHandler(userDataStore UserDataStore) http.HandlerFunc {
 func DeleteUserHandler(userDataStore UserDataStore) http.HandlerFunc {
 	return func(res http.ResponseWriter, req *http.Request) {
 		// Totally trust the client, this is fine (it's not, don't do this)
-		body, err := ioutil.ReadAll(req.Body)
+		body, err := io.ReadAll(req.Body)
 
 		if err != nil {
-			fmt.Println("ioutil.ReadAll(req.Body): ", err)
+			fmt.Println("io.ReadAll(req.Body): ", err)
 			res.WriteHeader(500)
 			return
 		}

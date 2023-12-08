@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
+	"os"
 )
 
 // GSLDataStore knows how to get GSL data
@@ -19,7 +19,7 @@ func NewGSLDataStore(championFile string) *GSLDataStore {
 
 // GetCurrentChampion returns the name of the current GSL champion
 func (s *GSLDataStore) GetCurrentChampion() (string, error) {
-	contents, err := ioutil.ReadFile(s.championFile)
+	contents, err := os.ReadFile(s.championFile)
 
 	if err != nil {
 		return "", fmt.Errorf("failed to read file: %w", err)
